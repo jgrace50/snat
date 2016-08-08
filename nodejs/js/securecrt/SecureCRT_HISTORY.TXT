@@ -1,0 +1,413 @@
+
+           SecureCRT(R) 8.0.1 (Official) -- April 26, 2016
+
+            Copyright (C) 1995-2016 VanDyke Software, Inc.
+                        All rights reserved.
+
+
+This file contains the SecureCRT product history.  It includes lists 
+of new features, changes, and bug fixes sorted by release.  For a 
+product description, installation notes, registration information,
+and contact information, please refer to Readme.txt (downloaded 
+with this installation).
+
+
+Changes in SecureCRT 8.0.1 (Official) -- April 26, 2016
+-------------------------------------------------------
+
+New features:
+
+  - The color of the icons in the button bar can be configured, allowing
+    buttons to be color coded.  This feature was inadvertently omitted
+    from the Beta 1 history.
+
+Changes:
+
+  - Pressing ALT+M will open the Session Manager if it's hidden.
+  - Pressing ALT+I will display the Session Manager if it's hidden and
+    put focus in the filter bar.
+  - Pressing ALT+G on Windows and Linux or ALT+COMMAND+G on the Mac will
+    open the Command window if it's not already open.
+  - Added the ability to map the Command window option to send characters
+    immediately (MENU_TOGGLE_SEND_CHARACTERS_IMMEDIATELY) to a key or
+    button.
+
+Bug fixes:
+
+  - SecureCRT crashed when importing settings from settings that were
+    exported from SecureCRT 8.0 if the settings contained a button bar.
+  - The fallback mechanism for public-key authentication did not work
+    correctly and authentication failed rather than prompting for the
+    username and public key.
+  - If a large keyword highlighting list that included regular
+    expressions was used for a session containing a large scrollback
+    buffer, session output could be very slow.
+  - The Xterm escape sequence to change the title was not being honored.
+  - Pressing ALT+B opened the Session Manager, but did not connect the
+    selected session(s).
+  - If the session font was changed before connecting, the old font
+    settings were used when the session was connected.
+  - If SecureCRT did not open any sessions on startup and auto-hide was
+    on for the Session Manager, the Session Manager stayed open.
+  - Fixed a memory leak that occurred when ECDSA keys were used.
+  - Windows: If a tabbed session was closed or disconnected while it was
+    being dragged to a new tab group, SecureCRT could crash.
+  - Windows: After connecting to a session using the Session Manager,
+    focus remained in the Session Manager instead of moving to the
+    session.
+  - Mac/Linux: SecureCRT crashed when attempting to use the Public Key
+    Assistant.
+  - Mac: SecureCRT could crash if accessibility options were on and the
+    Session Options dialog was opened several times in rapid succession
+    from the toolbar or the Cancel button was pressed while tabbing
+    through options in the Session Options dialog.
+  - Mac: If auto-hide was on for the Session Manager, pressing COMMAND+I
+    did not move focus from the session tree to the session filter box.
+
+
+Changes in SecureCRT 8.0 (Official) -- March 31, 2016
+-----------------------------------------------------
+
+Change:
+
+  - Windows: Added the ability to lock and unlock all the sessions in
+    a tab group at once.
+
+Bug fixes:
+
+  - Mac: In the Session Manager and Connect dialog, it was not possible
+    to select multiple sessions using COMMAND+<click>.
+  - Mac: When outputting a large file with the "cat" command to a
+    session with column width of 256 or larger, the output was
+    noticeably slow.
+
+
+Changes in SecureCRT 8.0 (Beta 5) -- March 22, 2016
+---------------------------------------------------
+
+Bug fixes:
+
+  - SecureCRT could crash when keyword highlighting was being used for
+    a session and the session was scrolling output.
+  - Zmodem uploads of large files (e.g., 30 MB) could hang.
+  - If the configuration paths were set up so that a personal data
+    folder was being used and the configuration folder was read-only,
+    settings could not be saved in the personal data folder even
+    though it was writable.
+  - If the configuration paths were set up so that a personal data
+    folder was being used and the configuration folder was read-only,
+    attempting to merge the configuration data failed and the personal
+    data was deleted.
+
+
+Changes in SecureCRT 8.0 (Beta 4) -- March 10, 2016
+---------------------------------------------------
+
+Changes:
+
+  - The Session Manager's "auto hide" option is on by default.
+
+Bug fixes:
+
+  - If there was text in the scrollback buffer and the session was
+    scrolled all the way back and then the size of the scrollback
+    buffer was decreased in the Session Options dialog, SecureCRT
+    crashed.
+  - Files uploaded using Zmodem did not have the correct date and
+    permissions.
+  - The progress output from X/Y/Zmodem transfers was formatted
+    incorrectly.
+  - When there was a large amount of text in the scrollback buffer and
+    the session window was scrolled all the way back, it was not
+    possible to scroll all the way back down.
+  - With the "Office 2013" display theme, if the Session Manager was
+    docked and the SecureCRT application window was maximized and
+    moved to a secondary monitory, the Session Manager could
+    disappear.
+  - With the "VS2013 Blue", "VS2013 Dark", and "Office 2013" display
+    themes, if the computer had two monitors and SecureCRT was
+    maximized, the application window extended to the other monitor.
+  - The context menu items "Connect in New Tab Group" and "Connect in
+    Tabs" should not have been enabled for tiled sessions.
+  - Windows: When a session was launched from the Activator, focus
+    remained in the Session Manager instead of being put in the
+    session.
+  - Windows: When the mouse hovered over menu items, the status bar
+    sometimes contained incorrect informational text.
+  - Mac: The Zmodem Upload dialog did not display the upload options
+    by default.
+  - Linux: SecureCRT could crash after issuing the "rz" command to do
+    a Zmodem file transfer.
+  - Linux: it was not possible to use the Input Method Editor (IME).
+
+
+Changes in SecureCRT 8.0 (Beta 3) -- February 18, 2016
+------------------------------------------------------
+
+Changes:
+
+  - Windows: The global option "Disable session zooming with keyboard
+    shortcuts" is on by default if the system keyboard is not
+    English (US, Canada, or UK).  This change only affects new
+    installations.
+
+Bug fixes:
+
+  - If the global option "Only show tabs when there are more than one"
+    was set and two or more sessions were connected, the tab for the
+    first session was not shown.
+  - The SetOption script function did not work correctly with the
+    option "User Button Bar Name".
+  - Windows: When connecting to a Windows system through RDP with the
+    color depth set to less than 32-bit, the icons in the Session
+    Manager and Connect dialog were not displayed correctly.
+  - Mac: Pressing COMMAND+F to search the scrollback buffer could
+    cause SecureCRT to crash.
+
+
+Changes in SecureCRT 8.0 (Beta 2) -- February 9, 2016
+-----------------------------------------------------
+
+Changes:
+
+  - The default character encoding is UTF-8.  This change only
+    affects new installations.
+  - In the Keyword List Properties dialog, the character limit for
+    keywords that are not regular expressions was increased to 256.
+  - Added support for the Modify field order in TN3270 emulation.
+
+Bug fixes:
+
+  - When editing the Default session's Color Scheme, the "Normal"
+    widget flickered.
+
+
+Changes in SecureCRT 8.0 (Beta 1) -- January 28, 2016
+-----------------------------------------------------
+
+New features:
+
+  - Windows: Added support for tab groups, which provides another
+    option for organizing connected sessions and doing side-by-side
+    comparisons of session output.  
+  - Windows: The user interface has new themes and new toolbar
+    icons.
+  - Windows: Buttons on the button bar can be arranged by dragging
+    and dropping when the ALT key is pressed.
+  - Windows: Added support for high-DPI monitors.
+  - Added support for TN3270 emulation.
+  - Added support for the VT320 status line.
+  - Added a "Send Characters Immediately" mode to the Command window,
+    which makes it possible to do the following in one or multiple
+    sessions: stop commands using CTRL+C, edit files using an editor
+    such as vi, send escape sequences, and do tab completion.
+  - Added the ability to start the TFTP server when SecureCRT starts,
+    when any session connects, and manually.
+  - Added the ability to use and generate ECDSA (RFC 5656) and
+    Ed25519 keys.
+  - Added the ability to generate keys in the new OpenSSH format.
+  - SSH2: PuTTY PPK keys can be used for public-key authentication. 
+  - SSH2: On Windows, enhanced public-key authentication to allow
+    a public key to be specified from the CAPI or PKCS #11 store.
+  - SSH2: On Windows, public keys can be exported in OpenSSH
+    format and can be exported from PKCS #11.
+  - SSH2: On Windows, certificates can be used as a raw key for
+    public-key authentication.
+  - SSH2: On Windows, added support for X.509 authentication using
+    the x509v3-ssh-rsa and x509v3-ssh-dss algorithms as specified in
+    RFC 6187.
+  - SSH2: On Windows, X.509v3 keys can be added to the SSH agent.
+  - SSH2: Added an SSH INI-file-only option called "Automatically
+    Accept Host Keys", which allows host keys to be accepted
+    automatically.  Note: Enabling this option is not considered
+    a security best practice.
+  - SSH2: Added a session INI-file-only option "Ident String" that
+    allows the SecureCRT identity string to be specified.
+  - Added a "Close All Not Connected" item to the tabbed/tiled session
+    right-click menu, which makes it easy to close all sessions that
+    are not currently connected.
+  - Added a menu item to the Zoom pull-right menu in the View menu that
+    allows a session to be restored to its original size if it has been
+    zoomed.
+  - Added an option for disabling session zooming with keyboard
+    shortcuts to the Global Options dialog.
+  - Added support for Xterm OSC escape sequences to change background
+    and foreground colors.
+  - In the Session Manager and Connect dialog, it's now possible to
+    connect a session or sessions in a new window without changing the
+    option that specifies whether or not sessions should be opened in
+    a tab.
+  - The connection status icons were updated.
+  - Windows: Updated the icons in the Session Manager and Connect
+    dialog.
+  - Windows: Added the ability to make SecureCRT the default
+    application for the URI "ssh://".
+  - Mac/Linux: The button bar can now be positioned at the top of the
+    SecureCRT window.
+
+Changes:
+
+  - By default, SecureCRT now listens for port forward requests only
+    on 127.0.0.1.
+  - Improved the drawing performance of keyword highlighting.
+  - Quick Connect sessions that are saved are put in the current folder
+    in the Session Manager.
+  - Added a keyboard shortcut for the "Reconnect All" menu item.
+  - The ability to use a session as a firewall has been added to the
+    Quick Connect dialog and the Session wizard.
+  - The escape sequence "CSI ?3l" is ignored when the SecureCRT
+    window is maximized or full screen.
+  - Added the ability to map a key or button to display the Global or
+    Session Options dialogs.
+  - In the Session Manager, when a folder or multiple sessions are
+    selected, selecting the new menu item "Connect in Tabs in New
+    Window" opens the selected sessions in tabs in a new SecureCRT
+    window.
+  - Changed the SSL GUI protocol name to "Telnet/TLS" to reflect
+    that TLS is supported.
+  - Added "Contact Support" to the Help menu.
+  - SSH2: If host key authentication fails with the ssh-dss algorithm,
+    the ssh-rsa algorithm is preferred on subsequent attempts to
+    reconnect the session.
+  - SSH2: It's now possible to specify the minimum group exchange prime
+    size in the Session Options dialog.
+  - SSH2: SecureCRT can now connect to Cisco devices that send the
+    incorrect identity string "SSH-2.99-Cisco-1.25".
+  - SSH2: The "diffie-hellman" key exchange algorithm is off for the
+    default session.  This change only affects new installations.
+  - SSH2: SHA-1 and SHA-2 fingerprints are displayed for public keys
+    in addition to MD5.
+  - SSH2: In all places where the host key fingerprint is displayed,
+    the SHA-2 fingerprint is also displayed.
+  - Windows: Updated the included Python library to version 2.7.
+  - Windows: The background color for the selected theme is used as
+    the background for the terminal area when SecureCRT starts and
+    no sessions are connected.
+  - Windows: If there is nothing in the clipboard that can be pasted
+    into SecureCRT, all paste operations are either disabled or
+    ignored, which eliminates the "General clipboard failure" error
+    message.
+  - Windows: If the administrative policy "Enable Check For Updates"
+    is set to false, "Update Now" is not allowed.
+  - Windows: Only PNG files can be used as images in custom menu
+    (.MNU) files.
+  - Mac: The font dialog now shows only fixed-width fonts that can
+    be used with SecureCRT.
+  - Mac: Improved the docking interface for the Session Manager.
+
+Bug fixes:
+
+  - Attempting to delete a session without a name caused every session
+    in the session database to be deleted.
+  - If SecureCRT had insufficient permissions to access a configuration
+    folder located on OneDrive, SecureCRT crashed.
+  - SecureCRT could become unresponsive when settings were being
+    imported or exported, especially when the configuration was large
+    (e.g., lots of sessions).
+  - SecureCRT could hang or display output incorrectly when the output
+    contained OSC RGB color substitution escape sequences.
+  - When upgrading from a version of SecureCRT prior to 6.1, session
+    logon actions were not migrated.
+  - In the Quick Connect dialog, if all authentication methods were
+    disabled for SSH2 and then an attempt was made to change the protocol
+    to Telnet, a warning was displayed and the protocol was not changed.
+  - When the session options "Shift forces local mouse operations" and
+    "Send scroll wheel events to remote" were set, scroll wheel events
+    with SHIFT pressed were sent to the remote system.
+  - It was not possible to drag the file separator in vim.
+  - The selection in a session could be lost when switching between
+    tabbed sessions or when the cursor was repositioned to the same
+    row as the selection.
+  - If the Session Manager had "Auto Hide" set and focus was in an
+    application other than SecureCRT, if the mouse was moved over the
+    Session Manager, it appeared to be activated, but clicking in the
+    Session Manager did nothing.
+  - If the global options "Reuse disconnected tabs" and "Connect
+    sessions in tabs" were off and the SecureCRT window contained a
+    disconnected tab, when a new session was connected, it was opened
+    in a new tab.
+  - A highlight keyword list with the name "New..." could not be
+    edited or deleted.  The name "New..." is no longer allowed.
+  - If a disconnected tab was reused and the new session had a different
+    value specified for the scrollback lines, the value from the old
+    session was used.
+  - When the narrow font was being used, pressing the "Font" button for
+    the Normal font showed the wrong font in the Font dialog.
+  - SecureCRT did not produce the correct result for the vttest test
+    "Test of autowrap, mixing control and print characters."
+  - If SecureCRT started in tiled mode and then was switched to
+    tabbed mode, the "Show button bar" session option was not
+    honored.
+  - If the windows transparency settings were change to values other
+    than 255 (opaque), the settings were not honored when SecureCRT
+    restarted.
+  - Pass-through printing did not print Unicode characters correctly.
+  - SSH2: If the host key database was on an offline cached network
+    drive, SecureCRT was not able to save new host keys.
+  - SSH2: The cached session password was not updated after a password
+    change was forced by the remote system.
+  - SSH2: The SHA-2 fingerprint of the public key was not correct when a
+    .pfx file was used as the public key.
+  - SSH2: When attempting to connect to a session that specified
+    PKCS #11 public-key authentication using the ActivClient DLL, the
+    connection failed due to an error creating the signature during
+    public-key authentication.
+  - Windows: On a high-DPI (e.g., 4k) monitor, font scaling and session
+    zooming did not work correctly.
+  - Windows: On high-DPI monitors with scaling enabled, folders in
+    the Session Manager could not be expanded or collapsed.
+  - Windows: The Keymap Editor did not work correctly on high-DPI
+    monitors.
+  - Windows: The INI-file-only option to limit the taskbar preview
+    thumbnails was not being honored.
+  - Windows: If a session that toggled the display of the button bar
+    or Command window was connected, the SecureCRT window resized and
+    changed the session's geometry.
+  - Windows: When using the Windows Classic theme, if the terminal
+    window contained scrollback data, moving the Find dialog over it
+    caused sections of the terminal window to be erased.
+  - Windows: When the session database contained folders and one
+    of those folders was selected in the Session Manager, if a
+    session was created using the Quick Connect dialog, the session
+    was not saved in the selected folder and any expanded folders
+    were collapsed.
+  - Windows: Attempting to set the port forward table using an array in
+    a VBScript script failed.
+  - Mac: If multiple tabbed sessions were connected and one of the
+    sessions was scrolled back, when switching between the tabs, part of
+    the terminal window could be missing.
+  - Mac: COMMAND+V could not be used to paste into dialogs.
+  - Mac: Local shell sessions opened in a tab when the "Open in a tab"
+    setting was off.
+  - Mac: If SecureCRT was in full-screen mode and three sessions were
+    connected, the wrong menu was displayed when the center tab was
+    right clicked.
+  - Mac: When using an Apple Magic Mouse, doing a side-swipe on the mouse
+    after or while double clicking caused focus to be put in the Session
+    Manager.
+  - Mac: If the SecureCRT window was maximized after connecting to a
+    session and the toolbar was hidden, the SecureCRT window resized
+    and changed position.  Then if the SecureCRT was maximized again
+    and the same session was connected again or closed, the SecureCRT
+    window resized and changed position again.
+  - Mac: If the SecureCRT application window was closed, nothing
+    happened when "Import Settings..." or "Export Settings..." was
+    selected from the Tools menu.
+  - Mac/Linux: When connecting to an SSH2 server with "ssh1" in the
+    hostname, the host key was prompted for even if it had been
+    accepted.
+  - Mac/Linux: If the option "Open Sessions in a Tab" was disabled in
+    the Session Manager and the sessions in a folder were connected
+    using "Connect in Tabs", all subsequent sessions were opened as
+    tabs in the same window.
+  - Mac/Linux: The Session Manager could not be docked by double-
+    clicking its title bar.
+  - Mac/Linux: When focus was in the Command window, and the shortcut
+    key ALT+<0-9> was entered, the number was sent to the Command
+    window and the specified tab was not activated.
+  - Mac/Linux: If multiple sessions were open in tabs and one tab had
+    some text selected and the other tab was activated, the selection in
+    the original tab was lost.
+  - Mac/Linux: If multiple sessions were selected in the Session Manager
+    or Connect dialog, using the context menu could change the selection
+    to contain only a single session.
