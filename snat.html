@@ -282,8 +282,8 @@ function sleep(miliseconds) {
 
 function getDeviceName() {
 
-// alert(autocomplete_device.value.toLowerCase());
-// alert(devicetoAddress[autocomplete_device.value.toLowerCase()]);
+  //alert(autocomplete_device.value.toLowerCase());
+  //alert(devicetoAddress[autocomplete_device.value.toLowerCase()]);
 if (devicetoAddress[autocomplete_device.value.toLowerCase()] === undefined) {
    document.getElementById("dialog_DeviceAddress").innerHTML = "No device provided. Enter a device to find its address.";
 } else {
@@ -292,7 +292,11 @@ if (devicetoAddress[autocomplete_device.value.toLowerCase()] === undefined) {
 };
 
 function device_onBlur() {
+//if (devicetoAddress[autocomplete_device.value.toLowerCase()] === undefined) {
+//   autocomplete_ip.value = "No match!";
+//} else {
    autocomplete_ip.value = hash_devicetoIP[autocomplete_device.value.toLowerCase()];
+//}
 };
 
 function ip_onBlur() {

@@ -116,7 +116,11 @@ console.log(os.cpus());
 console.timeEnd('Start:');
 console.log('Debugging is enabled....');
 }
-console.log(process.env.jgus_debug);
+else
+{
+   // console.log(process.env.jgus_debug);
+   console.log('Debugging is disabled! set environment variable jgus_debug=1 to enable...');
+}
 console.log('Running as: ' + process.env.USERNAME);
 console.log('Listening on port: %d', svrport);
 
